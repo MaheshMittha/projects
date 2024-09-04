@@ -1,0 +1,5 @@
+#### Children prop
+
+
+- Everthing we render between the component tag
+- 
