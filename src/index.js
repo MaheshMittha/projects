@@ -25,17 +25,19 @@ const books = [
 // })
 //  console.log(newNames);
 
-const BookList = () => {
+const BookList = () => {       // Parent Component 
+ const someValue = "shakeandBake";
+ const dispalyValue =()=>{
+  console.log(someValue);
+ }
   return (
-    <>
     <section className="booklist">
     {/* <EventExample/> */}
       {books.map((book) => {
         // console.log(book);
-        return <Book {...book} key={book.id} />;   // Map Method , on iteration data copied object
+        return <Book {...book} key={book.id} dispalyValue ={dispalyValue} />;   // Map Method , on iteration data copied object
       })}
     </section>
-    </>
     
   );
 };
@@ -74,15 +76,15 @@ const handleFormSubmit =(e)=>{
 */  
 
 
-
-// Created Book Component  (1)
+// Created Book Component  (1)    // Child Component
 const Book = (props) => {
-  const { author, title, img } = props;
-  // console.log(props);
+  const { author, title, img , dispalyValue } = props;
+  console.log(props);
   return (
     <article className="book">
       <img className="img" src={img} alt={title} />
       <h2>{title}</h2>
+      <button onClick={dispalyValue}>Click Me</button>
       <h4>{author}</h4>
     </article>
   );
@@ -90,6 +92,13 @@ const Book = (props) => {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<BookList />);
+
+
+
+
+
+
+
 
 
 
