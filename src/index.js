@@ -29,7 +29,7 @@ const BookList = () => {
   return (
     <>
     <section className="booklist">
-    <EventExample/>
+    {/* <EventExample/> */}
       {books.map((book) => {
         // console.log(book);
         return <Book {...book} key={book.id} />;   // Map Method , on iteration data copied object
@@ -40,43 +40,38 @@ const BookList = () => {
   );
 };
 
-
-// Typical Form Component (3)
-
+/* Typical Form Component (3)
 const EventExample = () => {
-
 const handleInputForm =(e)=> {
   // console.log(e);
   // console.log(e.target);
   // console.log(e.target.name);
   // console.log(e.target.value);
-  
   console.log("Handle Input Form");
 }
-
 const handleButtonClick = ()=>{
   alert("handle button clicked");
 }
-
 const handleFormSubmit =(e)=>{
   e.preventDefault();
   console.log("Form Submitted");
-
 }
-
-
-
   return (
     <section>
       <h2>Typical Form</h2>
-      <form action="" onSubmit={handleFormSubmit} >
+      <form onSubmit={handleFormSubmit} >
         <input type="text" name = "product" style={{margin :  '1rem 0' }} onChange={handleInputForm} />
-      </form>
-      <button onClick={handleButtonClick} >Click Me</button>
+        <button onClick={handleFormSubmit} type="submit">Submit</button>
 
+        <div>
+        <button onClick={handleButtonClick} type="button"> Click Me</button>
+        </div>
+
+      </form>
     </section>
   )
 }
+*/  
 
 
 
@@ -95,6 +90,9 @@ const Book = (props) => {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<BookList />);
+
+
+
 
 // https://m.media-amazon.com/images/I/816tHvSrjTL._AC_UL320_.jpg
 // Title : The Book of Lost Friends: A Novel
