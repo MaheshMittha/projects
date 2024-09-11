@@ -9,12 +9,14 @@ const books = [
     author: "by Lisa Wingate",
     title: "The Book of Lost Friends: A Novel",
     img: "./images/pexels-photo.jpeg",
+    id : 1
   },
 
   {
     author: "by Miranda Cowley Heller",
     title: "The Paper Palace (Reese's Book Club): A Novel",
     img: "https://m.media-amazon.com/images/I/8196jTFIdLL._AC_UL320_.jpg",
+    id : 2
   },
 ];
 
@@ -25,20 +27,14 @@ const books = [
 // })
 //  console.log(newNames);
 
-const BookList = () => {       // Parent Component 
- const someValue = "shakeandBake";
- const dispalyValue =()=>{
-  console.log(someValue);
- }
+// Parent Component
+const BookList = () => {
   return (
     <section className="booklist">
-    {/* <EventExample/> */}
       {books.map((book) => {
-        // console.log(book);
-        return <Book {...book} key={book.id} dispalyValue ={dispalyValue} />;   // Map Method , on iteration data copied object
+        return <Book {...book} key={book.id} />; // Map Method , on iteration data copied object
       })}
     </section>
-    
   );
 };
 
@@ -73,18 +69,18 @@ const handleFormSubmit =(e)=>{
     </section>
   )
 }
-*/  
+*/
 
-
-// Created Book Component  (1)    // Child Component
+// Child Component
 const Book = (props) => {
-  const { author, title, img , dispalyValue } = props;
+  const { author, title, img, } = props;
+
+
   console.log(props);
   return (
     <article className="book">
       <img className="img" src={img} alt={title} />
       <h2>{title}</h2>
-      <button onClick={dispalyValue}>Click Me</button>
       <h4>{author}</h4>
     </article>
   );
@@ -92,16 +88,6 @@ const Book = (props) => {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<BookList />);
-
-
-
-
-
-
-
-
-
-
 
 // https://m.media-amazon.com/images/I/816tHvSrjTL._AC_UL320_.jpg
 // Title : The Book of Lost Friends: A Novel
